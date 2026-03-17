@@ -1,0 +1,90 @@
+[package]
+name = "ethical-hacking-llm"
+version = "0.1.0"
+edition = "2021"
+description = "Ethical Hacking LLM dengan Rust"
+authors = ["Your Name <email@example.com>"]
+license = "MIT"
+repository = "https://github.com/yumiyas/ethical-hacking-llm"
+
+[lib]
+name = "ethical_hacking_llm"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ethical-hacking-llm"
+path = "src/main.rs"
+
+[dependencies]
+# Web framework
+axum = { version = "0.7", features = ["macros", "ws", "multipart"] }
+tokio = { version = "1.35", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors", "trace", "compression", "limit"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+toml = "0.8"
+
+# ML/AI Framework
+candle-core = "0.3.1"
+candle-transformers = "0.3.1"
+candle-nn = "0.3.1"
+tokenizers = "0.15"
+hf-hub = "0.3"
+
+# HTTP Client
+reqwest = { version = "0.11", features = ["json", "stream"] }
+
+# Database & Cache
+redis = { version = "0.23", features = ["tokio-comp", "connection-manager"] }
+sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "sqlite", "json"] }
+
+# Logging & Observability
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+metrics = "0.21"
+metrics-exporter-prometheus = "0.12"
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+rand = "0.8"
+chrono = "0.4"
+async-trait = "0.1"
+futures = "0.3"
+regex = "1.10"
+dotenv = "0.15"
+once_cell = "1.19"
+parking_lot = "0.12"
+lazy_static = "1.4"
+
+# Security
+argon2 = "0.5"
+jsonwebtoken = "9.2"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# File handling
+tempfile = "3.8"
+walkdir = "2"
+
+[dev-dependencies]
+tokio-test = "0.4"
+criterion = { version = "0.5", features = ["async_tokio"] }
+http-body-util = "0.1"
+hyper = { version = "1.0", features = ["full"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+debug = false
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[workspace]
+members = ["."]

@@ -1,0 +1,81 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# Environment
+.env
+*.env
+.env.local
+.env.production
+
+# Models
+/models/*.gguf
+/models/*.bin
+/models/*.safetensors
+/models/*.json
+!/models/README.md
+/models/phi-2-q4/
+/models/tinyllama-q4/
+/models/embeddings/
+
+# Data
+/data/cache/
+/data/*.db
+/data/*.db-*
+/data/knowledge_base/*.json
+!/data/knowledge_base/*.example.json
+
+# Logs
+*.log
+/logs/
+/logs/**/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.vs/
+
+# Docker
+*.pid
+docker-compose.override.yml
+.dockerignore
+*.docker
+
+# Secrets
+*.key
+*.pem
+*.crt
+secrets/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test artifacts
+coverage/
+*.profraw
+*.profdata
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backups
+*.bak
+*.backup
+
+# Python (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env/
+.venv/
